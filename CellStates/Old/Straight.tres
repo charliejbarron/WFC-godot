@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CellObject" format=3 uid="uid://g414bnwa8arb"]
+
+[ext_resource type="PackedScene" uid="uid://1ue4ty67lisd" path="res://CellStates/Objects/straight.tscn" id="1_3gdvv"]
+[ext_resource type="Script" uid="uid://in4fset87mqm" path="res://Scripts/CellObject.cs" id="2_5xrf8"]
+
+[resource]
+script = ExtResource("2_5xrf8")
+Object = ExtResource("1_3gdvv")
+PosX = "Floor"
+PosY = "Straight"
+NegX = "Floor"
+NegY = "Ground"
+metadata/_custom_type_script = "uid://in4fset87mqm"

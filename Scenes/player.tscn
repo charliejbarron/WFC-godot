@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dvlvtuhub3mla"]
+
+[ext_resource type="Script" uid="uid://dbe7e148j3ake" path="res://Scripts/Player.cs" id="1_v0iea"]
+[ext_resource type="Material" uid="uid://3a011en3l3yy" path="res://Materials/Visor.tres" id="2_6t5aa"]
+[ext_resource type="Material" uid="uid://du0h4brlodo1d" path="res://Materials/Character.tres" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://bbqokm7ksgsm" path="res://Scripts/CameraManager.cs" id="4_vgqql"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
+radius = 0.25
+height = 1.77
+
+[sub_resource type="BoxMesh" id="BoxMesh_v0iea"]
+material = ExtResource("2_6t5aa")
+size = Vector3(0.252, 0.32, 0.247)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v0iea"]
+material = ExtResource("2_cvnsp")
+top_radius = 0.15
+bottom_radius = 0.15
+height = 1.77
+radial_segments = 12
+rings = 0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3smsa"]
+sky_top_color = Color(5.0055983e-06, 0.6248456, 0.8030519, 1)
+sky_horizon_color = Color(0, 0.83412576, 0.80327374, 1)
+ground_bottom_color = Color(0.16473678, 0.3009396, 0.18174109, 1)
+ground_horizon_color = Color(0.45252556, 0.72827035, 0.534981, 1)
+
+[sub_resource type="Sky" id="Sky_x3wgy"]
+sky_material = SubResource("ProceduralSkyMaterial_3smsa")
+
+[sub_resource type="Environment" id="Environment_fkybt"]
+background_mode = 2
+sky = SubResource("Sky_x3wgy")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vgqql"]
+radius = 0.1
+
+[node name="playerHolder" type="Node" unique_id=1480246454]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=726856956]
+collision_layer = 2
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+floor_constant_speed = true
+floor_max_angle = 0.5235988
+script = ExtResource("1_v0iea")
+_moveSpeeds = Vector2(4, 7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=587182278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.885, 0)
+shape = SubResource("CapsuleShape3D_f60y1")
+
+[node name="Head" type="Node3D" parent="Player" unique_id=1972232939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Head" unique_id=39723733]
+transform = Transform3D(1, 0, 0, 0, 0.5363204, 0, 0, 0, 1.0251514, 0, 0, -0.057736434)
+gi_mode = 2
+mesh = SubResource("BoxMesh_v0iea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=918112162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.885, 0)
+gi_mode = 2
+mesh = SubResource("CylinderMesh_v0iea")
+
+[node name="Orientation" type="Node3D" parent="." unique_id=1224414501]
+
+[node name="CameraOriginMarker" type="Node3D" parent="." unique_id=2005398474]
+
+[node name="PitchMarker" type="Node3D" parent="CameraOriginMarker" unique_id=1111314256]
+
+[node name="CameraOrigin" type="Node3D" parent="." unique_id=1042567281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+top_level = true
+
+[node name="Camera" type="Camera3D" parent="CameraOrigin" unique_id=70869896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62, 0)
+top_level = true
+environment = SubResource("Environment_fkybt")
+near = 0.04
+script = ExtResource("4_vgqql")
+
+[node name="CameraMarker" type="Node3D" parent="CameraOrigin" unique_id=1290791158]
+
+[node name="SoftShape" type="ShapeCast3D" parent="CameraOrigin" unique_id=1421242325]
+physics_interpolation_mode = 1
+shape = SubResource("SphereShape3D_vgqql")

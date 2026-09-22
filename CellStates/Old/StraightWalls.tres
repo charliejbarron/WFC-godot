@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CellObject" format=3 uid="uid://bl72u0r1in0gl"]
+
+[ext_resource type="PackedScene" uid="uid://scjbttey5awj" path="res://CellStates/Objects/straight_walls.tscn" id="1_keull"]
+[ext_resource type="Script" uid="uid://in4fset87mqm" path="res://Scripts/CellObject.cs" id="2_deybb"]
+
+[resource]
+script = ExtResource("2_deybb")
+Object = ExtResource("1_keull")
+PosX = "Floor"
+PosY = "Straight"
+NegX = "Floor"
+NegY = "Straight"
+metadata/_custom_type_script = "uid://in4fset87mqm"

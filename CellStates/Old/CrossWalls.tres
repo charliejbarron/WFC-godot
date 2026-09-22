@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CellObject" format=3 uid="uid://bobby2rg2psub"]
+
+[ext_resource type="PackedScene" uid="uid://5qxjmvfwshgp" path="res://CellStates/Objects/cross_walls.tscn" id="1_rinuc"]
+[ext_resource type="Script" uid="uid://in4fset87mqm" path="res://Scripts/CellObject.cs" id="2_yn2vx"]
+
+[resource]
+script = ExtResource("2_yn2vx")
+Object = ExtResource("1_rinuc")
+PosX = "Floor"
+PosY = "Cross"
+PosZ = "Floor"
+NegX = "Floor"
+NegY = "Cross"
+NegZ = "Floor"
+metadata/_custom_type_script = "uid://in4fset87mqm"

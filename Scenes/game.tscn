@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b8a0o6ximjh5s"]
+
+[ext_resource type="Script" uid="uid://6mus6x27whj6" path="res://Scripts/Wfc.cs" id="1_ebmjs"]
+[ext_resource type="Resource" uid="uid://bvh5vp8w1nbnn" path="res://States.tres" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://dvlvtuhub3mla" path="res://Scenes/player.tscn" id="3_3dryh"]
+[ext_resource type="Script" uid="uid://de0wepetwn3qo" path="res://Scripts/NavigationManager.cs" id="4_wowpa"]
+[ext_resource type="Script" uid="uid://dac7rd2y76760" path="res://Scripts/FreeNavigationNode.cs" id="5_i6g32"]
+[ext_resource type="Script" uid="uid://btj4aoo5rc262" path="res://Scripts/TP_Perspective.cs" id="6_v158k"]
+[ext_resource type="Script" uid="uid://cj3dirn88yonq" path="res://Scripts/SettingsManager.cs" id="7_1l0tm"]
+[ext_resource type="Script" uid="uid://bf24dbcfifdcr" path="res://Scripts/InputManager.cs" id="8_v158k"]
+
+[sub_resource type="Resource" id="Resource_v158k"]
+script = ExtResource("6_v158k")
+CameraAutoRotation = 0.0
+CameraOffset = Vector3(0, 0, 0)
+CameraWeight = 50.0
+metadata/_custom_type_script = "uid://btj4aoo5rc262"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aa0vk"]
+
+[node name="Game" type="Node" unique_id=1456242782]
+
+[node name="WFC" type="Node" parent="." unique_id=432010512]
+script = ExtResource("1_ebmjs")
+_airTag = ""
+_cellsList = ExtResource("2_qxrlw")
+_generateSize = Vector3i(55, 5, 55)
+_separation = 8.0
+metadata/_custom_type_script = "uid://6mus6x27whj6"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=16937374]
+transform = Transform3D(-0.8777538, 0.4697473, 0.09426355, 0.18161261, 0.14415544, 0.9727466, 0.44335654, 0.87095165, -0.21184513, 0, 0, 0)
+shadow_enabled = true
+shadow_blur = 10.0
+
+[node name="NavigationManager" type="Node" parent="." unique_id=1504076277 node_paths=PackedStringArray("StartingNode")]
+script = ExtResource("4_wowpa")
+StartingNode = NodePath("FreeNavigationNode")
+PlayerScene = ExtResource("3_3dryh")
+metadata/_custom_type_script = "uid://de0wepetwn3qo"
+
+[node name="FreeNavigationNode" type="Node3D" parent="NavigationManager" unique_id=1790016209 node_paths=PackedStringArray("ConnectedNavigationNodes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1333258, -8.4831085)
+script = ExtResource("5_i6g32")
+CameraPerspective = SubResource("Resource_v158k")
+ConnectedNavigationNodes = []
+metadata/_custom_type_script = "uid://dac7rd2y76760"
+
+[node name="RegionArea" type="Area3D" parent="NavigationManager/FreeNavigationNode" unique_id=603258343]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationManager/FreeNavigationNode/RegionArea" unique_id=1325534057]
+shape = SubResource("BoxShape3D_aa0vk")
+
+[node name="SettingsManager" type="Node" parent="." unique_id=2068985618]
+script = ExtResource("7_1l0tm")
+SmoothCamera = false
+metadata/_custom_type_script = "uid://cj3dirn88yonq"
+
+[node name="InputManager" type="Node" parent="." unique_id=988144543]
+script = ExtResource("8_v158k")
+metadata/_custom_type_script = "uid://bf24dbcfifdcr"

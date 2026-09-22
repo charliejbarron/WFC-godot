@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CellObjectStates" format=3 uid="uid://bvh5vp8w1nbnn"]
+
+[ext_resource type="Resource" uid="uid://g414bnwa8arb" path="res://CellStates/Old/Straight.tres" id="1_icv84"]
+[ext_resource type="Resource" uid="uid://bcfx6gwre10rf" path="res://CellStates/Old/Bend.tres" id="2_awmm5"]
+[ext_resource type="Resource" uid="uid://c3liwg5rf3j24" path="res://CellStates/Old/Junction.tres" id="4_rcaur"]
+[ext_resource type="Resource" uid="uid://bl72u0r1in0gl" path="res://CellStates/Old/StraightWalls.tres" id="5_awmm5"]
+[ext_resource type="Resource" uid="uid://cr0lbm1nggjxp" path="res://CellStates/Old/StraightStrutWalls.tres" id="6_awmm5"]
+[ext_resource type="Script" uid="uid://in4fset87mqm" path="res://Scripts/CellObject.cs" id="6_ym4fa"]
+[ext_resource type="Resource" uid="uid://cyffshedvntow" path="res://CellStates/Old/BendWalls.tres" id="7_2h4bu"]
+[ext_resource type="PackedScene" uid="uid://cx8oqwgrmk8s6" path="res://Elevator.tscn" id="7_6d4qj"]
+[ext_resource type="Script" uid="uid://dhqu1aq1mxpj" path="res://Scripts/CellObjectStates.cs" id="8_7naby"]
+[ext_resource type="Resource" uid="uid://c0f3socd7we7c" path="res://CellStates/Old/BendStrutWalls.tres" id="8_ym4fa"]
+[ext_resource type="Resource" uid="uid://bobby2rg2psub" path="res://CellStates/Old/CrossWalls.tres" id="9_6d4qj"]
+[ext_resource type="Resource" uid="uid://bl3yjp7m5o0tb" path="res://CellStates/Old/CrossStrutWalls.tres" id="10_ym4fa"]
+[ext_resource type="Resource" uid="uid://cyj3xd740qnr8" path="res://CellStates/Old/JunctionWalls.tres" id="11_7naby"]
+[ext_resource type="Resource" uid="uid://chx3cp74st4ol" path="res://CellStates/Old/JunctionStrutWalls.tres" id="12_v07qf"]
+
+[sub_resource type="Resource" id="Resource_3dryh"]
+script = ExtResource("6_ym4fa")
+Object = ExtResource("7_6d4qj")
+PosX = "Floor"
+PosY = "Cross"
+PosZ = "Floor"
+NegX = "Floor"
+NegY = "Ground"
+NegZ = "Floor"
+metadata/_custom_type_script = "uid://in4fset87mqm"
+
+[resource]
+script = ExtResource("8_7naby")
+StartingCell = SubResource("Resource_3dryh")
+PossibleStates = Array[Object]([ExtResource("1_icv84"), ExtResource("2_awmm5"), ExtResource("4_rcaur"), ExtResource("5_awmm5"), ExtResource("6_awmm5"), ExtResource("7_2h4bu"), ExtResource("8_ym4fa"), ExtResource("9_6d4qj"), ExtResource("10_ym4fa"), ExtResource("11_7naby"), ExtResource("12_v07qf")])
+metadata/_custom_type_script = "uid://dhqu1aq1mxpj"

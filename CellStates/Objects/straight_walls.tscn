@@ -1,0 +1,47 @@
+[gd_scene format=4 uid="uid://scjbttey5awj"]
+
+[ext_resource type="Material" uid="uid://fb8ai8onriop" path="res://Materials/Map.tres" id="1_l2jn3"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ahwwa"]
+_surfaces = [{
+"aabb": AABB(-0.04, -0.02123068, -1.9073486e-08, 0.08, 0.04246136, 0.080000006),
+"format": 34359742465,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQA"),
+"name": "Junction Walls",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CtcjPffrrbwI16M9CtcjvffrrbwI16M9CtcjvffrrbwK16OyCtcjPffrrbwK16OyCtcjPffrrTwI16M9CtcjPffrrTwK16OyCtcjvffrrTwK16OyCtcjvffrrTwI16M9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qdi2p"]
+resource_name = "Straight Walls"
+_surfaces = [{
+"aabb": AABB(-0.04, -0.02123068, -1.9073486e-08, 0.08, 0.04246136, 0.080000006),
+"attribute_data": PackedByteArray("4rF+P2ZRAT/isX4/mq5+P6xUAT+Zrn4/rVQBP2RRAT/isX4/ZlEBP+Kxfj+arn4/rFQBP5mufj+tVAE/ZFEBPw=="),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQA"),
+"name": "Junction Walls",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CtcjPffrrbwI16M9CtcjvffrrbwI16M9CtcjvffrrbwK16OyCtcjPffrrbwK16OyCtcjPffrrTwI16M9CtcjPffrrTwK16OyCtcjvffrrTwK16OyCtcjvffrrTwI16M9/3////9//7//f////3//v/9/////f/+//3////9//7//fwAA/v//v/9/AAD+//+//38AAP7//7//fwAA/v//vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ahwwa")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g7owt"]
+data = PackedVector3Array(0.04, -0.0212, 0.08, -0.04, -0.0212, 0.08, -0.04, -0.0212, 0, -0.04, -0.0212, 0, 0.04, -0.0212, 0, 0.04, -0.0212, 0.08, 0.04, 0.0212, 0.08, 0.04, 0.0212, 0, -0.04, 0.0212, 0, -0.04, 0.0212, 0, -0.04, 0.0212, 0.08, 0.04, 0.0212, 0.08)
+
+[node name="Straight Walls" type="MeshInstance3D" unique_id=1127966255]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+material_override = ExtResource("1_l2jn3")
+mesh = SubResource("ArrayMesh_qdi2p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=557801610]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=86661609]
+shape = SubResource("ConcavePolygonShape3D_g7owt")

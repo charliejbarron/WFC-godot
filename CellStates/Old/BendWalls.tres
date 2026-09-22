@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CellObject" format=3 uid="uid://cyffshedvntow"]
+
+[ext_resource type="PackedScene" uid="uid://7skgoomklka2" path="res://CellStates/Objects/bend_walls.tscn" id="1_h6ea0"]
+[ext_resource type="Script" uid="uid://in4fset87mqm" path="res://Scripts/CellObject.cs" id="2_e13xa"]
+
+[resource]
+script = ExtResource("2_e13xa")
+Object = ExtResource("1_h6ea0")
+PosX = "Floor"
+PosY = "Bend"
+NegY = "Bend"
+NegZ = "Floor"
+metadata/_custom_type_script = "uid://in4fset87mqm"

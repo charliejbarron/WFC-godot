@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CellObject" format=3 uid="uid://chx3cp74st4ol"]
+
+[ext_resource type="PackedScene" uid="uid://fwwmoy2lepc8" path="res://CellStates/Objects/junction_strut_walls.tscn" id="1_fcwql"]
+[ext_resource type="Script" uid="uid://in4fset87mqm" path="res://Scripts/CellObject.cs" id="2_n8vdv"]
+
+[resource]
+script = ExtResource("2_n8vdv")
+Object = ExtResource("1_fcwql")
+PosY = "Junction"
+PosZ = "Floor"
+NegX = "Floor"
+NegY = "Junction"
+NegZ = "Floor"
+metadata/_custom_type_script = "uid://in4fset87mqm"
